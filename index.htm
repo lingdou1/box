@@ -4,102 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Lucky Coordinate</title>
-    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #238636;
-            --primary-dark: #19652a;
+            --primary-light: #e6f4ea;
             --secondary: #2f81f7;
-            --dark-bg: #0d1117;
-            --dark-card: #161b22;
-            --dark-border: #30363d;
-            --text-primary: #f0f6fc;
-            --text-secondary: #8b949e;
-            --accent: #bc8cff;
-            --success: #3fb950;
-            --warning: #d29922;
-            --danger: #f85149;
+            --light-bg: #f8f9fa;
+            --light-card: #ffffff;
+            --light-border: #e1e4e8;
+            --text-primary: #24292f;
+            --text-secondary: #57606a;
+            --accent: #8250df;
+            --success: #1a7f37;
+            --warning: #9a6700;
+            --danger: #cf222e;
+            --shadow: rgba(27, 31, 35, 0.04);
+            --radius: 12px;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
         }
         
         body {
-            background-color: var(--dark-bg);
+            background-color: var(--light-bg);
             color: var(--text-primary);
             line-height: 1.6;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(35,134,54,0.1) 0%, transparent 55%),
-                radial-gradient(circle at 75% 75%, rgba(47,129,247,0.1) 0%, transparent 55%);
+            background-image: linear-gradient(120deg, #fdfbfb 0%, #f5f7fa 100%);
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            width: 100%;
         }
         
         /* Header Styles */
         header {
             text-align: center;
-            padding: 40px 20px;
-            border-bottom: 1px solid var(--dark-border);
+            padding: 30px 20px;
             position: relative;
             overflow: hidden;
-        }
-        
-        header::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(35,134,54,0.15) 0%, transparent 70%);
-            z-index: -1;
+            margin-bottom: 20px;
         }
         
         .logo {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
             gap: 15px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
-        .logo i {
-            font-size: 2.5rem;
-            color: var(--primary);
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .logo-icon i {
+            font-size: 2.8rem;
+            color: white;
         }
         
         h1 {
-            font-size: 2.8rem;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 800;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--text-primary);
         }
         
         .project-tagline {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: var(--text-secondary);
             max-width: 800px;
-            margin: 0 auto 30px;
+            margin: 0 auto 20px;
+            font-weight: 400;
         }
         
         /* Button Grid */
         .button-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -108,76 +108,90 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px 20px;
-            background: var(--dark-card);
-            border: 1px solid var(--dark-border);
-            border-radius: 8px;
+            gap: 8px;
+            padding: 12px 16px;
+            background: var(--light-card);
+            border: 1px solid var(--light-border);
+            border-radius: var(--radius);
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
             text-align: center;
+            box-shadow: 0 1px 3px var(--shadow);
+            font-size: 0.95rem;
         }
         
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             border-color: var(--primary);
-            background: linear-gradient(135deg, rgba(35,134,54,0.2), rgba(47,129,247,0.2));
+            background: linear-gradient(135deg, rgba(35,134,54,0.05), rgba(47,129,247,0.05));
         }
         
         .btn i {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
         .btn-primary {
             background: var(--primary);
             border-color: var(--primary);
+            color: white;
         }
         
         .btn-primary:hover {
-            background: var(--primary-dark);
+            background: var(--success);
+            color: white;
         }
         
         /* Content Sections */
         section {
-            margin: 40px 0;
+            margin: 30px 0;
+            padding: 0 10px;
         }
         
         .section-title {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--dark-border);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--light-border);
+            color: var(--text-primary);
         }
         
         .section-title i {
             color: var(--primary);
+            background: var(--primary-light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
         
         .card {
-            background: var(--dark-card);
-            border: 1px solid var(--dark-border);
-            border-radius: 12px;
-            padding: 25px;
+            background: var(--light-card);
+            border: 1px solid var(--light-border);
+            border-radius: var(--radius);
+            padding: 20px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 1px 3px var(--shadow);
         }
         
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             border-color: var(--primary);
         }
         
@@ -195,15 +209,15 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
         }
         
         .card-header i {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--primary);
-            background: rgba(35,134,54,0.1);
-            width: 50px;
-            height: 50px;
+            background: var(--primary-light);
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -211,39 +225,42 @@
         }
         
         .card h3 {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 5px;
+            color: var(--text-primary);
         }
         
         .card p {
             color: var(--text-secondary);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
         }
         
         pre {
-            background: rgba(0,0,0,0.3);
-            border-radius: 8px;
-            padding: 18px;
+            background: rgba(241, 248, 255, 0.8);
+            border-radius: var(--radius);
+            padding: 15px;
             overflow-x: auto;
-            font-size: 0.95rem;
-            margin: 15px 0;
+            font-size: 0.9rem;
+            margin: 12px 0;
             border-left: 3px solid var(--primary);
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            line-height: 1.5;
         }
         
         code {
             color: var(--accent);
-            font-family: 'Fira Code', monospace;
         }
         
         a {
             color: var(--secondary);
             text-decoration: none;
             transition: color 0.2s ease;
+            font-weight: 500;
         }
         
         a:hover {
             color: var(--primary);
-            text-decoration: underline;
         }
         
         .link-list {
@@ -253,7 +270,8 @@
         
         .link-list li {
             padding: 8px 0;
-            border-bottom: 1px dashed var(--dark-border);
+            border-bottom: 1px dashed var(--light-border);
+            font-size: 0.95rem;
         }
         
         .link-list li:last-child {
@@ -271,29 +289,79 @@
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
-            border-top: 1px solid var(--dark-border);
+            padding: 25px 20px;
+            margin-top: 30px;
+            border-top: 1px solid var(--light-border);
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            background: var(--light-card);
+            border-radius: var(--radius);
+            margin: 20px 10px 15px;
+            box-shadow: 0 1px 3px var(--shadow);
         }
         
         /* Responsive */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
             
             .project-tagline {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             
             .section-title {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
+            }
+            
+            .button-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             }
             
             .card-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .logo-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .logo-icon i {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .button-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                font-size: 0.9rem;
+                padding: 10px 14px;
+            }
+            
+            .card {
+                padding: 16px;
+            }
+            
+            .card-header i {
+                width: 40px;
+                height: 40px;
+                font-size: 1.4rem;
+            }
+            
+            .card h3 {
+                font-size: 1.2rem;
             }
         }
         
@@ -315,50 +383,135 @@
         /* Badge */
         .badge {
             display: inline-block;
-            padding: 4px 10px;
+            padding: 4px 8px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-left: 10px;
+            margin-left: 8px;
         }
         
         .badge-success {
-            background: rgba(63,185,80,0.2);
+            background: rgba(26,127,55,0.1);
             color: var(--success);
-            border: 1px solid var(--success);
         }
         
         .badge-warning {
-            background: rgba(210,153,34,0.2);
+            background: rgba(154,103,0,0.1);
             color: var(--warning);
-            border: 1px solid var(--warning);
         }
         
         .badge-danger {
-            background: rgba(248,81,73,0.2);
+            background: rgba(207,34,46,0.1);
             color: var(--danger);
-            border: 1px solid var(--danger);
         }
         
         .badge-info {
-            background: rgba(47,129,247,0.2);
+            background: rgba(47,129,247,0.1);
             color: var(--secondary);
-            border: 1px solid var(--secondary);
+        }
+        
+        .note {
+            background: var(--primary-light);
+            padding: 12px;
+            border-radius: var(--radius);
+            margin: 12px 0;
+            border-left: 3px solid var(--primary);
+            font-size: 0.9rem;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--light-card);
+            border: 1px solid var(--light-border);
+            border-radius: var(--radius);
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            margin-top: 8px;
+            box-shadow: 0 1px 3px var(--shadow);
+            font-size: 0.9rem;
+        }
+        
+        .download-btn:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .feature-highlight {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 18px;
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid var(--light-border);
+        }
+        
+        .feature-highlight i {
+            font-size: 2.2rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .feature-highlight h3 {
+            font-size: 1.4rem;
+        }
+        
+        .feature-highlight p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1000;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+
     <div class="container">
         <header>
             <div class="logo">
-                <i class="fab fa-github"></i>
+                <div class="logo-icon">
+                    <i class="fab fa-github"></i>
+                </div>
                 <h1>GitHub Lucky Coordinate</h1>
+                <p class="project-tagline">一站式 GitHub 资源导航与实用工具集合</p>
             </div>
-            <p class="project-tagline">一站式GitHub资源导航与工具集合</p>
             
             <div class="button-grid">
                 <a href="../new/index.htm" class="btn btn-primary animate">
-                    <i class="fab fa-github"></i> View on GitHub
+                    <i class="fab fa-github"></i> GitHub 主页
                 </a>
                 <a href="../new/apk.htm" class="btn animate delay-1">
                     <i class="fab fa-android"></i> Android 应用
@@ -379,6 +532,14 @@
         </header>
         
         <main>
+            <div class="feature-highlight animate">
+                <i class="fas fa-star"></i>
+                <div>
+                    <h3>一站式 GitHub 资源导航</h3>
+                    <p>精选 GitHub 优质资源、工具和实用指南，助力开发者提升效率</p>
+                </div>
+            </div>
+            
             <section>
                 <h2 class="section-title">
                     <i class="fas fa-info-circle"></i> 项目介绍
@@ -392,13 +553,60 @@
                         </div>
                     </div>
                     <ul class="link-list">
-                        <li>TVBox <a href="https://github.com/CatVodTVOfficial/TVBoxOSC">GitHub社区</a> 根据官方代码仓生成的安卓应用</li>
+                        <li>TVBox <a href="https://github.com/CatVodTVOfficial/TVBoxOSC">GitHub 社区</a> 根据官方代码仓生成的安卓应用</li>
                         <li>通过导入特点资源接口,解析各类爬虫源、XP源、采集源等</li>
                         <li>原版支持本地功能，聚合模式，支持多种视频格式</li>
                         <li>新版支持多jar(爬虫包)，增加直播节目预告 EGP</li>
                         <li>编辑器 PC Web版 <a href="https://catvodtvofficial.github.io/CatVodTVJsonEditor/">CatVodTVJsonEditor</a></li>
                         <li>设置 — 配置地址 — 输入你的站源规则 — 确定即可</li>
                     </ul>
+                    
+                    <div class="note">
+                        <i class="fas fa-lightbulb"></i> 提示：所有资源均来自互联网，仅供学习交流使用
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <h2 class="section-title">
+                    <i class="fas fa-download"></i> 下载资源
+                </h2>
+                <div class="card-grid">
+                    <div class="card animate">
+                        <div class="card-header">
+                            <i class="fab fa-android"></i>
+                            <div>
+                                <h3>Q版应用 <span class="badge badge-success">推荐</span></h3>
+                                <p>TVBox_q215613905_20231105-0923.apk</p>
+                            </div>
+                        </div>
+                        <a href="https://www.lanzouj.com/b0enz012b#123" class="download-btn">下载 (密码:123)</a>
+                        <a href="https://tsq.lanzouf.com/b0c4nr91c#123" class="download-btn">更多下载 (密码:123)</a>
+                    </div>
+                    
+                    <div class="card animate delay-1">
+                        <div class="card-header">
+                            <i class="fab fa-android"></i>
+                            <div>
+                                <h3>俊版应用</h3>
+                                <p>TVBox_takagen99_20231111-0156.apk</p>
+                            </div>
+                        </div>
+                        <a href="https://www.lanzouj.com/b0enz00zi#123" class="download-btn">下载 (密码:123)</a>
+                        <a href="https://wws.lanzouv.com/b03j4ulyh#999" class="download-btn">更多下载 (密码:999)</a>
+                    </div>
+                    
+                    <div class="card animate delay-2">
+                        <div class="card-header">
+                            <i class="fas fa-tv"></i>
+                            <div>
+                                <h3>影视仓</h3>
+                                <p>影视仓5.0.12.apk</p>
+                            </div>
+                        </div>
+                        <a href="https://www.lanzouj.com/b0enz00xg#123" class="download-btn">下载 (密码:123)</a>
+                        <a href="https://wwjn.lanzout.com/b03jpibob#1234" class="download-btn">更多下载 (密码:1234)</a>
+                    </div>
                 </div>
             </section>
             
@@ -419,7 +627,7 @@
 - 如某些网页打不开可能是DNS解析被劫持
 
 - 阿里公共DNS：<a href="https://www.alidns.com/knowledge?type=SETTING_DOCS#user">https://www.alidns.com/knowledge?type=SETTING_DOCS#user</a>
-- 1.打开Windows 10系统控制面板，点击右上角的以图标方式显示，点击“网络和共享中心”选项
+- 1.打开Windows 10系统控制面板，点击右上角的以图标方式显示，点击"网络和共享中心"选项
 
 - 2.IPv4——使用指定的DNS，在DNS服务器地址中输入223.5.5.5 和 223.6.6.6
    IPv6——使用指定的DNS，在DNS服务器地址中输入2400:3200::1 和 2400:3200:baba::1
@@ -427,49 +635,6 @@
 - 3.验证，打开CMD命令提示符，通过nslookup alidns.com 命令进行验证    
    若最终解析结果是配置的IPV4公共DNS（223.5.5.5或223.6.6.6）   
    或IPV6公共DNS（2400:3200::1或2400:3200:baba::1）返回的，则说明配置成功</code></pre>
-                </div>
-            </section>
-            
-            <section>
-                <h2 class="section-title">
-                    <i class="fas fa-download"></i> 下载资源
-                </h2>
-                <div class="card-grid">
-                    <div class="card animate">
-                        <div class="card-header">
-                            <i class="fab fa-android"></i>
-                            <div>
-                                <h3>Q版应用 <span class="badge badge-success">推荐</span></h3>
-                                <p>TVBox_q215613905_20231105-0923.apk</p>
-                            </div>
-                        </div>
-                        <a href="https://www.lanzouj.com/b0enz012b#123" class="btn">下载 (密码:123)</a>
-                        <a href="https://tsq.lanzouf.com/b0c4nr91c#123" class="btn" style="margin-top:10px">更多下载 (密码:123)</a>
-                    </div>
-                    
-                    <div class="card animate delay-1">
-                        <div class="card-header">
-                            <i class="fab fa-android"></i>
-                            <div>
-                                <h3>俊版应用</h3>
-                                <p>TVBox_takagen99_20231111-0156.apk</p>
-                            </div>
-                        </div>
-                        <a href="https://www.lanzouj.com/b0enz00zi#123" class="btn">下载 (密码:123)</a>
-                        <a href="https://wws.lanzouv.com/b03j4ulyh#999" class="btn" style="margin-top:10px">更多下载 (密码:999)</a>
-                    </div>
-                    
-                    <div class="card animate delay-2">
-                        <div class="card-header">
-                            <i class="fas fa-tv"></i>
-                            <div>
-                                <h3>影视仓</h3>
-                                <p>影视仓5.0.12.apk</p>
-                            </div>
-                        </div>
-                        <a href="https://www.lanzouj.com/b0enz00xg#123" class="btn">下载 (密码:123)</a>
-                        <a href="https://wwjn.lanzout.com/b03jpibob#1234" class="btn" style="margin-top:10px">更多下载 (密码:1234)</a>
-                    </div>
                 </div>
             </section>
             
@@ -536,12 +701,12 @@
                             <p>增强GitHub使用体验</p>
                         </div>
                     </div>
-                    <pre><code>- 🔰<a href="https://www.tampermonkey.net/">油猴插件</a> https://www.tampermonkey.net/   
-- 🔰<a href="https://greasyfork.org/zh-CN/scripts">脚本库greasyfork</a> https://greasyfork.org/zh-CN/scripts   
-- 🔰<a href="https://www.lanzoub.com/iHJ7S05iocpa">Github加速神器2.1.4</a> 
-- 🔰<a href="https://steampp.net/">Watt Toolkit</a> (原名 Steam++) 
-- 🔰<a href="https://greasyfork.org/zh-CN/scripts/435208">GitHub 中文化插件</a> 
-- 🔰<a href="https://greasyfork.org/zh-CN/scripts/412245">Github 高速下载增强</a></code></pre>
+                    <pre><code>- <a href="https://www.tampermonkey.net/">油猴插件</a> https://www.tampermonkey.net/   
+- <a href="https://greasyfork.org/zh-CN/scripts">脚本库greasyfork</a> https://greasyfork.org/zh-CN/scripts   
+- <a href="https://www.lanzoub.com/iHJ7S05iocpa">Github加速神器2.1.4</a> 
+- <a href="https://steampp.net/">Watt Toolkit</a> (原名 Steam++) 
+- <a href="https://greasyfork.org/zh-CN/scripts/435208">GitHub 中文化插件</a> 
+- <a href="https://greasyfork.org/zh-CN/scripts/412245">Github 高速下载增强</a></code></pre>
                 </div>
             </section>
         </main>
@@ -555,7 +720,7 @@
     <script>
         // 添加滚动动画
         document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.card');
+            const cards = document.querySelectorAll('.card, .feature-highlight');
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -568,6 +733,13 @@
             cards.forEach((card, index) => {
                 card.classList.remove('animate');
                 observer.observe(card);
+            });
+            
+            // 移动端菜单按钮
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            menuBtn.addEventListener('click', function() {
+                const buttons = document.querySelector('.button-grid');
+                buttons.classList.toggle('show');
             });
         });
     </script>
