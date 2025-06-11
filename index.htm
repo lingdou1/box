@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Lucky Coordinate</title>
+    <title>GitHub Lucky Coordinate - 资源导航</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -21,6 +21,7 @@
             --danger: #cf222e;
             --shadow: rgba(27, 31, 35, 0.04);
             --radius: 12px;
+            --spacing: 24px;
         }
         
         * {
@@ -43,17 +44,17 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: var(--spacing);
             width: 100%;
         }
         
         /* Header Styles */
         header {
             text-align: center;
-            padding: 30px 20px;
+            padding: var(--spacing);
             position: relative;
             overflow: hidden;
-            margin-bottom: 20px;
+            margin-bottom: calc(var(--spacing) * 0.5);
         }
         
         .logo {
@@ -61,12 +62,12 @@
             flex-direction: column;
             align-items: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .logo-icon {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
             display: flex;
@@ -81,14 +82,14 @@
         }
         
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             margin-bottom: 8px;
             font-weight: 700;
             color: var(--text-primary);
         }
         
         .project-tagline {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-secondary);
             max-width: 800px;
             margin: 0 auto 20px;
@@ -98,8 +99,8 @@
         /* Button Grid */
         .button-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
             max-width: 900px;
             margin: 0 auto;
         }
@@ -109,7 +110,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 12px 16px;
+            padding: 14px 16px;
             background: var(--light-card);
             border: 1px solid var(--light-border);
             border-radius: var(--radius);
@@ -119,7 +120,8 @@
             transition: all 0.3s ease;
             text-align: center;
             box-shadow: 0 1px 3px var(--shadow);
-            font-size: 0.95rem;
+            font-size: 1rem;
+            height: 100%;
         }
         
         .btn:hover {
@@ -130,7 +132,7 @@
         }
         
         .btn i {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
         
         .btn-primary {
@@ -146,7 +148,7 @@
         
         /* Content Sections */
         section {
-            margin: 30px 0;
+            margin: 40px 0;
             padding: 0 10px;
         }
         
@@ -154,9 +156,9 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-            padding-bottom: 8px;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
             border-bottom: 2px solid var(--light-border);
             color: var(--text-primary);
         }
@@ -164,29 +166,33 @@
         .section-title i {
             color: var(--primary);
             background: var(--primary-light);
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
+        /* Card Grid - Uniform Size */
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
         }
         
         .card {
             background: var(--light-card);
             border: 1px solid var(--light-border);
             border-radius: var(--radius);
-            padding: 20px;
+            padding: 25px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             box-shadow: 0 1px 3px var(--shadow);
+            display: flex;
+            flex-direction: column;
+            min-height: 380px;
         }
         
         .card:hover {
@@ -209,15 +215,15 @@
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
         
         .card-header i {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             color: var(--primary);
             background: var(--primary-light);
-            width: 45px;
-            height: 45px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -225,27 +231,28 @@
         }
         
         .card h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 5px;
             color: var(--text-primary);
         }
         
         .card p {
             color: var(--text-secondary);
-            margin-bottom: 12px;
-            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-size: 1rem;
         }
         
         pre {
             background: rgba(241, 248, 255, 0.8);
             border-radius: var(--radius);
-            padding: 15px;
+            padding: 18px;
             overflow-x: auto;
-            font-size: 0.9rem;
-            margin: 12px 0;
+            font-size: 0.95rem;
+            margin: 15px 0;
             border-left: 3px solid var(--primary);
             font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
             line-height: 1.5;
+            flex-grow: 1;
         }
         
         code {
@@ -266,12 +273,12 @@
         .link-list {
             list-style: none;
             margin-top: 10px;
+            flex-grow: 1;
         }
         
         .link-list li {
-            padding: 8px 0;
+            padding: 10px 0;
             border-bottom: 1px dashed var(--light-border);
-            font-size: 0.95rem;
         }
         
         .link-list li:last-child {
@@ -289,33 +296,39 @@
         /* Footer */
         footer {
             text-align: center;
-            padding: 25px 20px;
-            margin-top: 30px;
+            padding: 30px 20px;
+            margin-top: 40px;
             border-top: 1px solid var(--light-border);
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             background: var(--light-card);
             border-radius: var(--radius);
-            margin: 20px 10px 15px;
+            margin: 30px 10px 20px;
             box-shadow: 0 1px 3px var(--shadow);
         }
         
-        /* Responsive */
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .card {
+                min-height: 360px;
+            }
+        }
+        
         @media (max-width: 768px) {
             h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             
             .project-tagline {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             
             .section-title {
-                font-size: 1.4rem;
-            }
-            
-            .button-grid {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                font-size: 1.5rem;
             }
             
             .card-grid {
@@ -323,22 +336,26 @@
             }
             
             .logo-icon {
-                width: 70px;
-                height: 70px;
+                width: 80px;
+                height: 80px;
             }
             
             .logo-icon i {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
+            }
+            
+            .card {
+                min-height: auto;
             }
         }
         
         @media (max-width: 480px) {
             h1 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
             
             .section-title {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
             }
             
             .button-grid {
@@ -346,22 +363,27 @@
             }
             
             .btn {
-                font-size: 0.9rem;
-                padding: 10px 14px;
+                font-size: 0.95rem;
+                padding: 12px 16px;
             }
             
             .card {
-                padding: 16px;
+                padding: 20px;
             }
             
             .card-header i {
-                width: 40px;
-                height: 40px;
-                font-size: 1.4rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.6rem;
             }
             
             .card h3 {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
+            }
+            
+            .section-title i {
+                width: 45px;
+                height: 45px;
             }
         }
         
@@ -383,9 +405,9 @@
         /* Badge */
         .badge {
             display: inline-block;
-            padding: 4px 8px;
+            padding: 5px 10px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             font-weight: 600;
             margin-left: 8px;
         }
@@ -412,16 +434,16 @@
         
         .note {
             background: var(--primary-light);
-            padding: 12px;
+            padding: 15px;
             border-radius: var(--radius);
-            margin: 12px 0;
+            margin: 15px 0;
             border-left: 3px solid var(--primary);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
         
         .download-btn {
             display: inline-block;
-            padding: 8px 16px;
+            padding: 10px 18px;
             background: var(--light-card);
             border: 1px solid var(--light-border);
             border-radius: var(--radius);
@@ -431,7 +453,9 @@
             transition: all 0.2s ease;
             margin-top: 8px;
             box-shadow: 0 1px 3px var(--shadow);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            width: 100%;
+            text-align: center;
         }
         
         .download-btn:hover {
@@ -443,62 +467,46 @@
         .feature-highlight {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
             background: white;
-            padding: 18px;
+            padding: 25px;
             border-radius: var(--radius);
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
             border: 1px solid var(--light-border);
         }
         
         .feature-highlight i {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--primary);
             flex-shrink: 0;
         }
         
         .feature-highlight h3 {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
+            margin-bottom: 8px;
         }
         
         .feature-highlight p {
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             color: var(--text-secondary);
         }
         
-        /* Mobile menu */
-        .mobile-menu-btn {
-            display: none;
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            z-index: 1000;
-            background: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .card-content {
+            flex-grow: 1;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            cursor: pointer;
+            flex-direction: column;
         }
         
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: flex;
-            }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: auto;
         }
     </style>
 </head>
 <body>
-    <div class="mobile-menu-btn">
-        <i class="fas fa-bars"></i>
-    </div>
-
     <div class="container">
         <header>
             <div class="logo">
@@ -506,7 +514,7 @@
                     <i class="fab fa-github"></i>
                 </div>
                 <h1>GitHub Lucky Coordinate</h1>
-                <p class="project-tagline">一站式 GitHub 资源导航与实用工具集合</p>
+                <p class="project-tagline">一站式GitHub资源导航与工具集合</p>
             </div>
             
             <div class="button-grid">
@@ -535,8 +543,8 @@
             <div class="feature-highlight animate">
                 <i class="fas fa-star"></i>
                 <div>
-                    <h3>一站式 GitHub 资源导航</h3>
-                    <p>精选 GitHub 优质资源、工具和实用指南，助力开发者提升效率</p>
+                    <h3>一站式GitHub资源导航</h3>
+                    <p>精选GitHub优质资源、工具和实用指南，助力开发者提升效率</p>
                 </div>
             </div>
             
@@ -552,17 +560,19 @@
                             <p>聚合多源影视内容，无广告无限制</p>
                         </div>
                     </div>
-                    <ul class="link-list">
-                        <li>TVBox <a href="https://github.com/CatVodTVOfficial/TVBoxOSC">GitHub 社区</a> 根据官方代码仓生成的安卓应用</li>
-                        <li>通过导入特点资源接口,解析各类爬虫源、XP源、采集源等</li>
-                        <li>原版支持本地功能，聚合模式，支持多种视频格式</li>
-                        <li>新版支持多jar(爬虫包)，增加直播节目预告 EGP</li>
-                        <li>编辑器 PC Web版 <a href="https://catvodtvofficial.github.io/CatVodTVJsonEditor/">CatVodTVJsonEditor</a></li>
-                        <li>设置 — 配置地址 — 输入你的站源规则 — 确定即可</li>
-                    </ul>
-                    
-                    <div class="note">
-                        <i class="fas fa-lightbulb"></i> 提示：所有资源均来自互联网，仅供学习交流使用
+                    <div class="card-content">
+                        <ul class="link-list">
+                            <li>TVBox <a href="https://github.com/CatVodTVOfficial/TVBoxOSC">GitHub社区</a> 根据官方代码仓生成的安卓应用</li>
+                            <li>通过导入特点资源接口,解析各类爬虫源、XP源、采集源等</li>
+                            <li>原版支持本地功能，聚合模式，支持多种视频格式</li>
+                            <li>新版支持多jar(爬虫包)，增加直播节目预告 EGP</li>
+                            <li>编辑器 PC Web版 <a href="https://catvodtvofficial.github.io/CatVodTVJsonEditor/">CatVodTVJsonEditor</a></li>
+                            <li>设置 — 配置地址 — 输入你的站源规则 — 确定即可</li>
+                        </ul>
+                        
+                        <div class="note">
+                            <i class="fas fa-lightbulb"></i> 提示：所有资源均来自互联网，仅供学习交流使用
+                        </div>
                     </div>
                 </div>
             </section>
@@ -580,8 +590,12 @@
                                 <p>TVBox_q215613905_20231105-0923.apk</p>
                             </div>
                         </div>
-                        <a href="https://www.lanzouj.com/b0enz012b#123" class="download-btn">下载 (密码:123)</a>
-                        <a href="https://tsq.lanzouf.com/b0c4nr91c#123" class="download-btn">更多下载 (密码:123)</a>
+                        <div class="card-content">
+                            <div class="btn-group">
+                                <a href="https://www.lanzouj.com/b0enz012b#123" class="download-btn">下载 (密码:123)</a>
+                                <a href="https://tsq.lanzouf.com/b0c4nr91c#123" class="download-btn">更多下载 (密码:123)</a>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="card animate delay-1">
@@ -592,8 +606,12 @@
                                 <p>TVBox_takagen99_20231111-0156.apk</p>
                             </div>
                         </div>
-                        <a href="https://www.lanzouj.com/b0enz00zi#123" class="download-btn">下载 (密码:123)</a>
-                        <a href="https://wws.lanzouv.com/b03j4ulyh#999" class="download-btn">更多下载 (密码:999)</a>
+                        <div class="card-content">
+                            <div class="btn-group">
+                                <a href="https://www.lanzouj.com/b0enz00zi#123" class="download-btn">下载 (密码:123)</a>
+                                <a href="https://wws.lanzouv.com/b03j4ulyh#999" class="download-btn">更多下载 (密码:999)</a>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="card animate delay-2">
@@ -604,8 +622,12 @@
                                 <p>影视仓5.0.12.apk</p>
                             </div>
                         </div>
-                        <a href="https://www.lanzouj.com/b0enz00xg#123" class="download-btn">下载 (密码:123)</a>
-                        <a href="https://wwjn.lanzout.com/b03jpibob#1234" class="download-btn">更多下载 (密码:1234)</a>
+                        <div class="card-content">
+                            <div class="btn-group">
+                                <a href="https://www.lanzouj.com/b0enz00xg#123" class="download-btn">下载 (密码:123)</a>
+                                <a href="https://wwjn.lanzout.com/b03jpibob#1234" class="download-btn">更多下载 (密码:1234)</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -622,7 +644,8 @@
                             <p>解决资源无法加载、网页打不开问题</p>
                         </div>
                     </div>
-                    <pre><code>DNS解析
+                    <div class="card-content">
+                        <pre><code>DNS解析
 - 如有些资源无法加载: Box → 设置 → 安全Dns → 阿里
 - 如某些网页打不开可能是DNS解析被劫持
 
@@ -635,6 +658,7 @@
 - 3.验证，打开CMD命令提示符，通过nslookup alidns.com 命令进行验证    
    若最终解析结果是配置的IPV4公共DNS（223.5.5.5或223.6.6.6）   
    或IPV6公共DNS（2400:3200::1或2400:3200:baba::1）返回的，则说明配置成功</code></pre>
+                    </div>
                 </div>
             </section>
             
@@ -650,7 +674,8 @@
                             <p>API和仓库地址配置说明</p>
                         </div>
                     </div>
-                    <pre><code>- <a href="https://xn--sss604efuw.top/">饭太硬的自留地</a> http://www.饭太硬.top/tv  
+                    <div class="card-content">
+                        <pre><code>- <a href="https://xn--sss604efuw.top/">饭太硬的自留地</a> http://www.饭太硬.top/tv  
 - <a href="https://xn--sss604efuw.top/">肥猫宝贝</a> http://肥猫.live    
 - <a href="https://duo.hz.cz/">多多应用</a> https://duo.codered.cloud/iduo.json
               https://duo.codered.cloud/free.json
@@ -659,6 +684,7 @@
 - <a href="https://moil.cc/">云星日记多仓</a> http://itvbox.cc/可视TV/云星日记/仓库.json
               http://itvbox.cc/tvbox/云星日记/1.m3u8
 - <a href="/">更多仓库</a> https://raw.liucn.cc/box/dc.json</code></pre>
+                    </div>
                 </div>
             </section>
             
@@ -674,7 +700,8 @@
                             <p>解决GitHub访问缓慢问题</p>
                         </div>
                     </div>
-                    <pre><code>代理加速服务   
+                    <div class="card-content">
+                        <pre><code>代理加速服务   
 - 原始地址: https://github.com/用户名/仓库/raw/main/m.json  
 
 - 香港: https://raw.kkgithub.com/liu673cn/box/main/m.json  
@@ -686,6 +713,7 @@
   https://gcore.jsdelivr.net/gh/liu673cn/box@main/m.json   
   https://ghproxy.liuzhicong.com/https://raw.githubusercontent.com/liu673cn/box/main/m.json  
   https://hub.gitmirror.com/https://raw.githubusercontent.com/liu673cn/box/main/m.json</code></pre>
+                    </div>
                 </div>
             </section>
             
@@ -701,12 +729,14 @@
                             <p>增强GitHub使用体验</p>
                         </div>
                     </div>
-                    <pre><code>- <a href="https://www.tampermonkey.net/">油猴插件</a> https://www.tampermonkey.net/   
+                    <div class="card-content">
+                        <pre><code>- <a href="https://www.tampermonkey.net/">油猴插件</a> https://www.tampermonkey.net/   
 - <a href="https://greasyfork.org/zh-CN/scripts">脚本库greasyfork</a> https://greasyfork.org/zh-CN/scripts   
 - <a href="https://www.lanzoub.com/iHJ7S05iocpa">Github加速神器2.1.4</a> 
 - <a href="https://steampp.net/">Watt Toolkit</a> (原名 Steam++) 
 - <a href="https://greasyfork.org/zh-CN/scripts/435208">GitHub 中文化插件</a> 
 - <a href="https://greasyfork.org/zh-CN/scripts/412245">Github 高速下载增强</a></code></pre>
+                    </div>
                 </div>
             </section>
         </main>
@@ -733,13 +763,6 @@
             cards.forEach((card, index) => {
                 card.classList.remove('animate');
                 observer.observe(card);
-            });
-            
-            // 移动端菜单按钮
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            menuBtn.addEventListener('click', function() {
-                const buttons = document.querySelector('.button-grid');
-                buttons.classList.toggle('show');
             });
         });
     </script>
